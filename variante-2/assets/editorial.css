@@ -149,3 +149,12 @@
 }
 @media(prefers-reduced-motion:reduce){.price-story-image{transition:none}}
 @media print{.price-aside[data-price-story]{display:none}}
+
+/* Contact details use the same lightweight, local SVG icons throughout. */
+.contact-link{display:inline-flex;align-items:center;gap:10px;max-width:100%;vertical-align:middle}
+.contact-link>svg{width:18px;height:18px;flex:0 0 18px;stroke-width:1.65;stroke-linecap:round;stroke-linejoin:round;color:var(--olive)}
+.contact-link-label{min-width:0;overflow-wrap:anywhere}
+.footer .footer-contact .contact-link{min-height:34px;line-height:1.55;padding:3px 0}
+.legal .contact-link>svg,.form-note .contact-link>svg{width:16px;height:16px;flex-basis:16px}
+.text-link.contact-link:hover>svg{transform:none}
+@media(max-width:620px){.footer .footer-contact .contact-link{min-height:40px}}
