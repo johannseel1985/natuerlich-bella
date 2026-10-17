@@ -27,3 +27,7 @@ Bilder, Logo und veröffentlichte Geschäftsdaten stammen aus dem bestehenden Au
 Der Entwurf dient zunächst der Abstimmung mit der Betreiberin. Vor der endgültigen Veröffentlichung auf der Unternehmensdomain sind Geschäftsdaten, Inhalte und Rechtstexte freizugeben und auf den tatsächlichen Betrieb abzustimmen.
 
 Stand: 17.10.2026. Eigenständige zweite Variante mit individuellen Behandlungsseiten, großen Bildauftakten, Bildstrecken und fortgeführter Scroll-Bewegung. Die erste Version unter /natuerlich-bella/ bleibt unverändert. Die Bildherkunft der ergänzenden Motive ist in IMAGE-PROMPTS.json dokumentiert. Sie zeigen keine tatsächlichen Behandlungsergebnisse, Produkte oder Gutscheinverpackungen des Studios.
+
+## Datenschutz
+
+Die Datenschutzerklärung übernimmt den Inhalt der bestehenden Studio-Website vom 17.10.2026. Abschnitt 6 ergänzt die Umsetzung dieser Vorschau: GitHub Pages, E-Mail-Entwurf, Bewegungseinstellung im Sitzungsspeicher, lokale Schriften und Bilder sowie externe Links. Angaben zum bisherigen Webador-Auftritt sind als solche eingeordnet. Vor dem endgültigen Betrieb wird die Erklärung auf das tatsächlich eingesetzte Hosting und die freigegebenen Dienste abgestimmt.
