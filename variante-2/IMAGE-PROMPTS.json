@@ -1,0 +1,38 @@
+[
+  {
+    "name": "ritual",
+    "method": "Built-in image generation",
+    "prompt": "Use case: photorealistic-natural. Asset: editorial photograph for a warm, refined German beauty salon website. Create one wide landscape photograph, aspect ratio 3:2, of a tranquil professional facial ritual: an adult woman lying on cream linen, soft ivory headband holding her hair back, eyes closed, real natural skin texture, a cosmetician's anatomically correct hands gently applying a thin ivory facial mask to her cheek with a small fan brush. Crop the cosmetician's identity out. Side angle, carefully composed, elegant editorial magazine photography, subtle film grain, gentle afternoon window light, warm ivory, muted olive and sand tones. Visible tactile linen, shallow depth of field. Authentic and quiet, not glamorous or airbrushed. No text, logos, before-and-after, exaggerated skin results or watermark. This is an illustrative scene, not a depiction of a named real person or clinic.",
+    "assets": [
+      "dist/assets/ritual-640.webp",
+      "dist/assets/ritual-1280.webp"
+    ]
+  },
+  {
+    "name": "lash",
+    "method": "Built-in image generation",
+    "prompt": "Use case: photorealistic-natural. Asset: beauty editorial website image. Create one landscape 3:2 macro portrait of the eye and eyebrow area of an adult woman, eye gently open looking slightly to one side, naturally long but believable separated eyelashes and softly brushed full brows. Warm neutral skin with visible pores, natural catchlight, soft window light, muted cream and olive background, luxury editorial detail, true anatomy, refined but not retouched plastic. Frame the eye with enough surrounding skin so it can be responsively cropped. This should illustrate care for natural lashes and brows, not false extensions. No makeup-heavy styling, text, before-after layout, logos, watermark or claims of treatment results.",
+    "assets": [
+      "dist/assets/lash-640.webp",
+      "dist/assets/lash-1280.webp"
+    ]
+  },
+  {
+    "name": "serum",
+    "method": "Built-in image generation",
+    "prompt": "Use case: photorealistic-natural. Asset: landscape 3:2 editorial still life for a refined skincare treatment page. Close-up of a clear glass pipette with one suspended droplet above an unlabeled small amber serum bottle on warm pale limestone. A soft folded ivory linen towel and subtle leafy shadow in the background. Beautiful translucent glass, real liquid refraction, tactile stone texture, generous breathing space. Soft directional afternoon daylight, warm ivory, champagne, olive shadow tones. Elegant magazine photograph, believable real materials, no product brand, no writing, no medical needles, no watermark. This is a generic symbolic skincare image, no specific product.",
+    "assets": [
+      "dist/assets/serum-640.webp",
+      "dist/assets/serum-1280.webp"
+    ]
+  },
+  {
+    "name": "gift",
+    "method": "Built-in image generation",
+    "prompt": "Use case: photorealistic-natural. Asset: beauty salon gift page editorial. One landscape 3:2 photograph of a textured warm ivory envelope and a blank thick cream card loosely tied with a fine muted olive silk ribbon, resting on pale linen with one small softly blurred eucalyptus sprig. A little dried white flower nearby, beautifully tactile paper and natural ribbon folds, warm sunlight from the side and delicate shadows. Quiet personal gift mood, refined European beauty magazine, imperfect real photography, not a 3D render. No lettering, no invented logo, no voucher value, no watermark. Generic symbolic gift packaging, not a photo of a specific business's actual voucher.",
+    "assets": [
+      "dist/assets/gift-640.webp",
+      "dist/assets/gift-1280.webp"
+    ]
+  }
+]

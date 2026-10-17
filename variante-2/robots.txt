@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+# Public design preview. Every HTML page carries noindex.
