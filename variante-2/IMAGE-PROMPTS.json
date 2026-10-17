@@ -61,5 +61,14 @@
       "dist/assets/brow-details-640.webp",
       "dist/assets/brow-details-1280.webp"
     ]
+  },
+  {
+    "name": "contact-moment",
+    "method": "Built-in image generation",
+    "prompt": "Use case: photorealistic-natural. Asset: a new hero photograph for the contact and appointment page of a refined German beauty studio website, Natürlich Bella. Create one elegant square editorial still-life photograph: a modern smartphone in a warm cream case with a dark, unlit reflective screen, resting beside an open linen-bound appointment notebook with subtly ruled blank cream pages and a slim brass pen. A small handmade ivory ceramic cup and a softly blurred olive sprig complete the inviting desk scene on pale warm oak. The phone and notebook are the main focal point, suggesting a personal message and planning time for oneself. No people. Natural late-afternoon window light with gentle leafy shadows, tactile paper, beautiful real materials, quiet warm ivory, sand and muted olive palette. Photograph from a three-quarter overhead angle, with the important objects grouped within the central 65% of the frame and breathing room on every side for responsive rounded cropping and slight camera motion. Authentic boutique editorial photography, not a flat icon or a 3D render. No readable text, dates, logos, notifications, interface text, watermarks, branded devices, cosmetics, treatment bed or medical equipment. Generic illustrative appointment scene, not a depiction of Isabella's actual workspace.",
+    "assets": [
+      "dist/assets/contact-moment-640.webp",
+      "dist/assets/contact-moment-1280.webp"
+    ]
   }
 ]

@@ -217,11 +217,12 @@
         const top = rect.top + lag;
         const phase = clamp((viewport / 2 - top - rect.height / 2) / ((viewport + rect.height) / 2), -1, 1);
         const portrait = frame.dataset.motion.startsWith('portrait');
-        const range = Math.min(rect.height * (portrait ? .055 : .115), mobile ? 48 : 88);
-        const shift = phase * range;
-        const scale = (portrait ? 1.14 : 1.25) + .045 * Math.abs(phase);
+        const headSafe = frame.dataset.motion === 'portrait';
+        const range = Math.min(rect.height * (headSafe ? .009 : portrait ? .055 : .115), mobile ? 48 : 88);
+        const shift = headSafe ? -Math.abs(phase) * range : phase * range;
+        const scale = headSafe ? 1.012 + .008 * Math.abs(phase) : (portrait ? 1.14 : 1.25) + .045 * Math.abs(phase);
         const enter = ease((viewport - top) / Math.min(viewport * .6, rect.height * .85));
-        const inset = (1 - enter) * (portrait ? 5 : 8);
+        const inset = headSafe ? 0 : (1 - enter) * (portrait ? 5 : 8);
         writes.push(() => {
           frame.style.setProperty('--scroll-image-y', `${shift.toFixed(2)}px`);
           frame.style.setProperty('--scroll-image-scale', scale.toFixed(4));
