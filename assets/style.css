@@ -155,3 +155,39 @@ html:not(.js) .filters,html:not(.js) #filter-status{display:none}
   .cinema-enabled .motion-frame>img{animation:none!important;transform:none!important}
   .motion-frame:after,.motion-toggle{display:none!important}
 }
+
+/* Scroll choreography: separate layers for page flow and camera movement. */
+.scroll-flow .flow-item{transform:translate3d(0,var(--flow-y,0px),0);opacity:var(--flow-opacity,1)}
+.scroll-flow .flow-item:focus-within{opacity:1}
+.scroll-flow .motion-frame{clip-path:inset(0 var(--scroll-frame-inset,0%) round 2px)}
+.scroll-flow .motion-frame>img{translate:0 var(--scroll-image-y,0px);scale:var(--scroll-image-scale,1.25)}
+.scroll-flow .motion-frame.is-in-view>img{will-change:transform,translate,scale}
+.scroll-flow .hero-stamp{translate:0 var(--stamp-shift,0px);rotate:var(--stamp-turn,0deg)}
+.scroll-flow .studio-band,.scroll-flow .contact-band{clip-path:inset(0 var(--scene-inset,0%) round var(--scene-radius,0px))}
+.scroll-flow .process-card:before{width:calc(42px + (100% - 42px) * var(--flow-enter,0));transition:none}
+.scroll-flow .site-header:after{content:'';position:absolute;left:0;right:0;bottom:-1px;height:2px;background:var(--gold);transform:scaleX(var(--reading-progress,0));transform-origin:left;pointer-events:none}
+.about-section{border-radius:52px 52px 0 0}
+.about-copy,.studio-copy{position:relative;z-index:1}
+.treatment-grid{align-items:start}
+@media(min-width:851px){
+  .treatment-card:nth-child(2){margin-top:64px}
+  .treatment-card:nth-child(3){margin-top:28px}
+  .card-image{border-radius:110px 6px 48px 6px}
+  .treatment-card:nth-child(2) .card-image{border-radius:6px 110px 6px 48px}
+  .treatment-card:nth-child(3) .card-image{border-radius:80px 80px 6px 6px}
+}
+@media(max-width:620px){
+  .about-section{border-radius:32px 32px 0 0}
+  .card-image{border-radius:60px 4px 30px 4px}
+  .treatment-card:nth-child(2) .card-image{border-radius:4px 60px 4px 30px}
+}
+@media(prefers-reduced-motion:reduce){
+  .scroll-flow .flow-item{transform:none!important;opacity:1!important}
+  .scroll-flow .motion-frame,.scroll-flow .studio-band,.scroll-flow .contact-band{clip-path:none!important}
+  .scroll-flow .motion-frame>img,.scroll-flow .hero-stamp{translate:none!important;scale:none!important;rotate:none!important}
+}
+@media print{
+  .scroll-flow .flow-item{transform:none!important;opacity:1!important}
+  .scroll-flow .motion-frame,.scroll-flow .studio-band,.scroll-flow .contact-band{clip-path:none!important}
+  .scroll-flow .motion-frame>img,.scroll-flow .hero-stamp{translate:none!important;scale:none!important;rotate:none!important}
+}
