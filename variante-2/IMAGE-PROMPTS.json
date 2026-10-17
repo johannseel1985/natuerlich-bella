@@ -34,5 +34,32 @@
       "dist/assets/gift-640.webp",
       "dist/assets/gift-1280.webp"
     ]
+  },
+  {
+    "name": "massage",
+    "method": "Built-in image generation",
+    "prompt": "Use case: photorealistic-natural. Create a wide 3:2 editorial photograph for a refined cosmetic facial care website. A relaxed adult woman lies on ivory linen with eyes closed and her hair in a light linen headband. Two anatomically correct professional hands gently massage her temples and upper cheeks, no brush and no visible mask. Overhead three-quarter view, include enough breathing room around the head and hands for a square crop. Real skin pores, soft warm window light, muted olive shadows, cream and sand palette, natural tactile materials. Intimate and authentic European beauty magazine photography, not a glossy advertisement. No text, logos, watermark, exaggerated skin perfection or before-and-after. This is a generic illustrative scene, not a depiction of a named real person or a specific clinic.",
+    "assets": [
+      "dist/assets/massage-640.webp",
+      "dist/assets/massage-1280.webp"
+    ]
+  },
+  {
+    "name": "care-preparation",
+    "method": "Built-in image generation",
+    "prompt": "Use case: photorealistic-natural. One wide 3:2 editorial still-life photograph for the prices page of a refined beauty salon website. A shallow handmade ivory ceramic bowl containing a little pale cream, a clean natural-bristle fan brush resting diagonally on its rim, two neatly rolled soft white towels and a small clear glass of water arranged on a pale oak treatment tray. Focus on welcoming preparation for a facial treatment. No serum bottle and no pipette. Soft afternoon window light and gentle leafy shadows, warm ivory, oatmeal and muted olive palette, real ceramic imperfections and tactile linen, calm high-end European magazine photography. Generous composition for square responsive crops. No text, labels, price tags, logos, watermark, medical devices or clutter. Generic beauty-care atmosphere, not a specific business's real equipment.",
+    "assets": [
+      "dist/assets/care-preparation-640.webp",
+      "dist/assets/care-preparation-1280.webp"
+    ]
+  },
+  {
+    "name": "brow-details",
+    "method": "Built-in image generation",
+    "prompt": "Use case: photorealistic-natural. One wide 3:2 editorial still-life photograph showing precise cosmetic brow care tools arranged beautifully on warm ivory linen: a small clean silver slanted eyebrow tweezer, a fine black spoolie brush with a pale wooden handle, a simple rounded handheld mirror that reflects only warm light, and a tiny white ceramic dish. No branded products and no writing. Tactile natural textures, soft side daylight, subtle warm shadow, muted cream, olive and sand palette. Refined, believable close-up beauty magazine photograph, carefully spaced composition with the tools at the center so it works cropped square. No skin, needles, blood, glitter, text, logos, watermark or artificial 3D appearance.",
+    "assets": [
+      "dist/assets/brow-details-640.webp",
+      "dist/assets/brow-details-1280.webp"
+    ]
   }
 ]

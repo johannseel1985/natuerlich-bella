@@ -151,7 +151,7 @@
   scrollController = (() => {
     const clamp = (value, min = 0, max = 1) => Math.min(max, Math.max(min, value));
     const ease = value => { const t = clamp(value); return t * t * (3 - 2 * t); };
-    const selector = '[data-reveal], .hero-copy, .page-hero .wrap, .first-visit, .detail-copy > h2, .detail-copy > h3, .detail-copy > p, .intro-quote, .price-table, .price-aside, .contact-item, .contact-form, .faq-intro, .faq-list, .gift-strip .wrap, .catalog-section > h2, .service-item, .information';
+    const selector = '[data-reveal], .hero-copy, .page-hero .wrap, .first-visit, .detail-copy > h2, .detail-copy > h3, .detail-copy > p, .intro-quote, .price-table, .price-aside:not([data-price-story]), .contact-item, .contact-form, .faq-intro, .faq-list, .gift-strip .wrap, .catalog-section > h2, .service-item, .information';
     const units = [];
     document.querySelectorAll(selector).forEach(element => {
       if (element.parentElement.closest('.flow-item')) return;
@@ -274,6 +274,53 @@
     if ('ResizeObserver' in window) new ResizeObserver(request).observe(document.querySelector('main'));
     sync();
     return { request, sync, available: units.length > 0 };
+  })();
+  // Match the sticky appointment card to the price section currently being read.
+  // Stable section wrappers keep the scroll choreography from changing the trigger geometry.
+  (() => {
+    const aside = document.querySelector('[data-price-story]');
+    const sections = [...document.querySelectorAll('[data-price-section]')];
+    if (!aside || !sections.length) return;
+    const images = [...aside.querySelectorAll('[data-price-image]')];
+    const copies = [...aside.querySelectorAll('[data-price-copy]')];
+    const compact = window.matchMedia('(max-width: 620px)');
+    let raf = 0;
+    let active = aside.dataset.activeCategory;
+
+    function update() {
+      raf = 0;
+      // Never replace a link while somebody is navigating or using it with the keyboard.
+      if (aside.contains(document.activeElement)) return;
+      const headerHeight = header?.getBoundingClientRect().height || 80;
+      const probe = compact.matches
+        ? Math.min(innerHeight * .65, headerHeight + aside.getBoundingClientRect().height + 35)
+        : headerHeight + Math.min(230, (innerHeight - headerHeight) * .32);
+      let current = sections[0];
+      for (const section of sections) {
+        if (section.getBoundingClientRect().top <= probe) current = section;
+      }
+      const next = current.dataset.priceSection;
+      if (next === active) return;
+      active = next;
+      aside.dataset.activeCategory = next;
+      for (const panel of [...images, ...copies]) {
+        const selected = (panel.dataset.priceImage || panel.dataset.priceCopy) === next;
+        panel.classList.toggle('is-active', selected);
+        panel.setAttribute('aria-hidden', String(!selected));
+        panel.inert = !selected;
+      }
+      scrollController?.request();
+    }
+    function request() {
+      if (!raf) raf = requestAnimationFrame(update);
+    }
+    window.addEventListener('scroll', request, { passive: true });
+    window.addEventListener('resize', request, { passive: true });
+    window.addEventListener('pageshow', request);
+    aside.addEventListener('focusout', request);
+    document.fonts?.ready.then(request);
+    if ('ResizeObserver' in window) new ResizeObserver(request).observe(aside.parentElement);
+    request();
   })();
   syncPicturePlayback();
   setMenu(false);

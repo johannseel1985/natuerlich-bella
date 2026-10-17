@@ -26,4 +26,4 @@ Bilder, Logo und veröffentlichte Geschäftsdaten stammen aus dem bestehenden Au
 
 Der Entwurf dient zunächst der Abstimmung mit der Betreiberin. Vor der endgültigen Veröffentlichung auf der Unternehmensdomain sind Geschäftsdaten, Inhalte und Rechtstexte freizugeben und auf den tatsächlichen Betrieb abzustimmen.
 
-Stand: 17.10.2026. Eigenständige zweite Variante mit individuellen Behandlungsseiten, großen Bildauftakten, Bildstrecken und fortgeführter Scroll-Bewegung. Die erste Version unter /natuerlich-bella/ bleibt unverändert. Neue KI-Stimmungsbilder sind gekennzeichnet. Sie zeigen keine tatsächlichen Behandlungsergebnisse, Produkte oder Gutscheinverpackungen des Studios.
+Stand: 17.10.2026. Eigenständige zweite Variante mit individuellen Behandlungsseiten, großen Bildauftakten, Bildstrecken und fortgeführter Scroll-Bewegung. Die erste Version unter /natuerlich-bella/ bleibt unverändert. Die Bildherkunft der ergänzenden Motive ist in IMAGE-PROMPTS.json dokumentiert. Sie zeigen keine tatsächlichen Behandlungsergebnisse, Produkte oder Gutscheinverpackungen des Studios.
