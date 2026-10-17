@@ -35,7 +35,6 @@
 .has-motion .hero-copy>p{animation-delay:.16s}
 .has-motion .hero-copy>.actions{animation-delay:.24s}
 .has-motion .hero-copy>.hero-note{animation-delay:.32s}
-.has-motion .hero-photo{animation:photo-settle 1.4s var(--ease-out) both}
 .has-motion .hero-stamp{animation:stamp-settle 1.1s .18s var(--ease-out) both}
 .has-motion .page-hero .wrap>h1,.has-motion .page-hero .wrap>p,.has-motion .page-hero .wrap>.actions{animation:soft-rise .75s var(--ease-out) both}
 .has-motion .page-hero .wrap>p{animation-delay:.1s}
@@ -46,7 +45,6 @@
 .has-motion details[open]>p{animation:soft-rise .3s var(--ease-out) both}
 html:not(.js) .filters,html:not(.js) #filter-status{display:none}
 @keyframes soft-rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
-@keyframes photo-settle{from{transform:scale(1.045)}to{transform:scale(1)}}
 @keyframes stamp-settle{from{opacity:0;transform:translateY(12px) rotate(-5deg)}to{opacity:1;transform:translateY(0) rotate(8deg)}}
 @media(hover:hover) and (pointer:fine){
   .button:hover{box-shadow:0 8px 22px #333c3114}
@@ -114,4 +112,46 @@ html:not(.js) .filters,html:not(.js) #filter-status{display:none}
 @media print{
   .has-motion .will-reveal{opacity:1;transform:none}
   .menu-toggle,.menu-backdrop,.mobile-cta{display:none!important}
+}
+
+/* Continuous camera movement. Only visible pictures play. */
+.motion-frame{display:block;position:relative;width:100%;overflow:hidden;isolation:isolate;--motion-duration:16s;--motion-x-start:-1%;--motion-y-start:1%;--motion-x-end:2%;--motion-y-end:-1.5%;--motion-scale-start:1.06;--motion-scale-end:1.2}
+.hero-visual>.motion-frame,.studio-photo>.motion-frame{position:absolute;inset:0;height:100%}
+.card-image>.motion-frame{position:absolute;inset:0;height:100%}
+.motion-frame>img{transform-origin:center;backface-visibility:hidden}
+.motion-detail{border-radius:3px 3px 48px 3px}
+.motion-detail>.detail-photo{border-radius:0}
+.portrait-wrap>.motion-frame{border-radius:190px 190px 0 0}
+.portrait-wrap .motion-frame>img{border-radius:0}
+.motion-frame[data-motion=hero]{--motion-duration:13s;--motion-x-start:-1.4%;--motion-y-start:-.6%;--motion-x-end:2.5%;--motion-y-end:1.5%;--motion-scale-end:1.25}
+.motion-frame[data-motion=facial]{--motion-duration:17s;--motion-x-start:1%;--motion-x-end:-2%}
+.motion-frame[data-motion=care]{--motion-duration:15s;--motion-y-start:-1%;--motion-y-end:2%;--motion-scale-end:1.22}
+.motion-frame[data-motion=studio]{--motion-duration:18s;--motion-x-start:1.5%;--motion-x-end:-2.5%;--motion-scale-end:1.2}
+.motion-frame[data-motion=brows]{--motion-duration:16s;--motion-x-start:-.5%;--motion-x-end:1%;--motion-y-start:0%;--motion-y-end:-.5%;--motion-scale-start:1.03;--motion-scale-end:1.14}
+.motion-frame[data-motion^=portrait]{--motion-duration:19s;--motion-x-start:-.3%;--motion-x-end:.7%;--motion-y-start:0%;--motion-y-end:.4%;--motion-scale-start:1.025;--motion-scale-end:1.1}
+.cinema-enabled .motion-frame>img{animation:camera-drift var(--motion-duration) cubic-bezier(.4,0,.6,1) infinite alternate both;animation-play-state:paused;transition:none}
+.cinema-enabled .motion-frame:after{content:'';position:absolute;inset:-25%;pointer-events:none;background:linear-gradient(110deg,transparent 30%,rgba(255,248,220,.14) 47%,transparent 65%);mix-blend-mode:soft-light;animation:camera-light 11s ease-in-out infinite alternate both;animation-play-state:paused}
+.cinema-enabled .motion-frame[data-motion^=portrait]:after{display:none}
+.cinema-enabled .motion-frame.is-in-view>img,.cinema-enabled .motion-frame.is-in-view:after{animation-play-state:running}
+.cinema-enabled.cinema-paused .motion-frame>img,.cinema-enabled.cinema-paused .motion-frame:after,.cinema-enabled.menu-open .motion-frame>img,.cinema-enabled.menu-open .motion-frame:after{animation-play-state:paused}
+.motion-toggle{position:fixed;right:24px;bottom:22px;z-index:36;display:inline-flex;align-items:center;gap:7px;min-height:44px;padding:10px 15px;border:1px solid #b9bfae;border-radius:24px;background:rgba(248,245,238,.96);color:var(--ink);font-size:11px;line-height:1.3;box-shadow:0 5px 24px #333c3115;touch-action:manipulation}
+.motion-toggle:hover{background:var(--white)}
+.motion-toggle svg{width:17px;height:17px;stroke-width:2}
+.motion-play-icon{display:none}
+.motion-toggle[aria-pressed=true] .motion-play-icon{display:block}
+.motion-toggle[aria-pressed=true] .motion-pause-icon{display:none}
+.menu-open .motion-toggle{visibility:hidden}
+@keyframes camera-drift{from{transform:translate3d(var(--motion-x-start),var(--motion-y-start),0) scale(var(--motion-scale-start))}to{transform:translate3d(var(--motion-x-end),var(--motion-y-end),0) scale(var(--motion-scale-end))}}
+@keyframes camera-light{from{transform:translate3d(-18%,0,0);opacity:.35}to{transform:translate3d(18%,0,0);opacity:.8}}
+@media(max-width:620px){
+  .motion-toggle{right:14px;bottom:calc(88px + env(safe-area-inset-bottom));padding:10px 13px;font-size:10px}
+  .motion-frame[data-motion=hero]{--motion-duration:12s;--motion-scale-end:1.21;--motion-x-end:2%}
+}
+@media(prefers-reduced-motion:reduce){
+  .cinema-enabled .motion-frame>img{animation:none!important;transform:none!important}
+  .motion-frame:after,.motion-toggle{display:none!important}
+}
+@media print{
+  .cinema-enabled .motion-frame>img{animation:none!important;transform:none!important}
+  .motion-frame:after,.motion-toggle{display:none!important}
 }

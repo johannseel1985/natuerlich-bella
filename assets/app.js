@@ -83,6 +83,67 @@
       window.location.href = url;
     });
   }
+  const pictures = [...document.querySelectorAll('[data-motion]')];
+  const motionToggle = document.querySelector('.motion-toggle');
+  const visiblePictures = new Set();
+  let pictureObserver;
+  let pictureMotion = false;
+  let userPaused = false;
+  let printing = false;
+  try { userPaused = sessionStorage.getItem('bella-picture-motion') === 'paused'; } catch {}
+
+  function syncPicturePlayback() {
+    document.body.classList.toggle('cinema-paused', userPaused || document.hidden || printing);
+    if (!motionToggle) return;
+    motionToggle.hidden = !pictureMotion || !visiblePictures.size || printing;
+    motionToggle.setAttribute('aria-pressed', String(userPaused));
+    motionToggle.setAttribute('aria-label', userPaused ? 'Bildbewegung fortsetzen' : 'Bildbewegung pausieren');
+    motionToggle.querySelector('span').textContent = userPaused ? 'Bilder bewegen' : 'Bilder pausieren';
+  }
+  function setupPictureMotion() {
+    pictureObserver?.disconnect();
+    visiblePictures.clear();
+    pictures.forEach(frame => frame.classList.remove('is-in-view'));
+    pictureMotion = canAnimate() && pictures.length > 0;
+    document.body.classList.toggle('cinema-enabled', pictureMotion);
+    if (pictureMotion) {
+      // Start immediately for images in the first viewport, without waiting for a callback.
+      pictures.forEach(frame => {
+        const box = frame.getBoundingClientRect();
+        if (box.bottom > 0 && box.top < window.innerHeight) {
+          visiblePictures.add(frame);
+          frame.classList.add('is-in-view');
+        }
+      });
+      if ('IntersectionObserver' in window) {
+        pictureObserver = new IntersectionObserver(entries => {
+          entries.forEach(entry => {
+            entry.target.classList.toggle('is-in-view', entry.isIntersecting);
+            if (entry.isIntersecting) visiblePictures.add(entry.target);
+            else visiblePictures.delete(entry.target);
+          });
+          syncPicturePlayback();
+        }, { threshold: 0 });
+        pictures.forEach(frame => pictureObserver.observe(frame));
+      } else {
+        pictures.forEach(frame => { visiblePictures.add(frame); frame.classList.add('is-in-view'); });
+      }
+    }
+    syncPicturePlayback();
+  }
+  motionToggle?.addEventListener('click', () => {
+    userPaused = !userPaused;
+    try { sessionStorage.setItem('bella-picture-motion', userPaused ? 'paused' : 'playing'); } catch {}
+    syncPicturePlayback();
+  });
+  document.addEventListener('visibilitychange', syncPicturePlayback);
+  window.addEventListener('pageshow', setupPictureMotion);
+  window.addEventListener('beforeprint', () => { printing = true; syncPicturePlayback(); });
+  window.addEventListener('afterprint', () => { printing = false; syncPicturePlayback(); });
+  reducedMotion.addEventListener('change', setupPictureMotion);
+  navigator.connection?.addEventListener('change', setupPictureMotion);
+  setupPictureMotion();
+
   let observer;
   function stopMotion() {
     document.body.classList.remove('has-motion');

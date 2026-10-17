@@ -16,6 +16,8 @@ Die Dateien sind für den Projektpfad `/natuerlich-bella/` vorbereitet. Bei eine
 
 Responsive Navigation mit beschriftetem Smartphone-Menü, große Linkzeilen und eine kompakte Behandlungsauswahl auf kleinen Bildschirmen. Desktop-Filter und mobile Auswahl bleiben synchron. Sanfte Einblendungen und Bildübergänge berücksichtigen reduzierte Bewegung und den Datensparmodus. Ohne JavaScript sind Navigation und alle Behandlungen weiterhin erreichbar.
 
+Die Originalbilder bewegen sich dauerhaft wie bei einer ruhigen Kamerafahrt: Zoom, wechselnde Ausschnitte und leichte Lichtbewegungen. Die Effekte laufen nur bei sichtbaren Bildern und pausieren in Hintergrund-Tabs. Der Schalter „Bilder pausieren“ merkt sich die Auswahl für den aktuellen Tab. Bei reduzierter Bewegung oder Datensparmodus bleiben die Bilder statisch.
+
 Das Formular bereitet E-Mail-Anfragen vor und öffnet das E-Mail-Programm. Es gibt keine automatische Reservierung, kein Formular-Backend und keine Tracking-Skripte im Website-Code. Schriften und Bilder werden lokal ausgeliefert.
 
 ## Quellen und Rechte
@@ -24,4 +26,4 @@ Bilder, Logo und veröffentlichte Geschäftsdaten stammen aus dem bestehenden Au
 
 Der Entwurf dient zunächst der Abstimmung mit der Betreiberin. Vor der endgültigen Veröffentlichung auf der Unternehmensdomain sind Geschäftsdaten, Inhalte und Rechtstexte freizugeben und auf den tatsächlichen Betrieb abzustimmen.
 
-Stand: 17.10.2026. Enthält die vergrößerte Textplakette auf der Startseite sowie die überarbeitete mobile Navigation und sanfte Bewegungen auf allen Inhaltsseiten.
+Stand: 17.10.2026. Enthält die vergrößerte Textplakette, die überarbeitete mobile Navigation sowie kontinuierliche Bildbewegungen mit Pause-Funktion.
