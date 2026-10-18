@@ -18,7 +18,7 @@ Responsive Navigation mit beschriftetem Smartphone-Menü, große Linkzeilen und 
 
 Die Originalbilder bewegen sich dauerhaft wie bei einer ruhigen Kamerafahrt: Zoom, wechselnde Ausschnitte und leichte Lichtbewegungen. Zusätzlich steuert das Scrollen Bildtiefe, Zoom, Bildrahmen, versetzt gleitende Behandlungskarten und Abschnittsübergänge. Die Bewegungen kehren sich beim Zurückscrollen um. Das Scrollen selbst bleibt nativ. Der Schalter „Bewegung pausieren“ hält die Effekte an und merkt sich die Auswahl für den aktuellen Tab. Bei reduzierter Bewegung oder Datensparmodus bleibt die Darstellung statisch.
 
-Das Formular bereitet E-Mail-Anfragen vor und öffnet das E-Mail-Programm. Es gibt keine automatische Reservierung, kein Formular-Backend und keine Tracking-Skripte im Website-Code. Schriften und Bilder werden lokal ausgeliefert.
+Das Formular bereitet wahlweise eine E-Mail oder eine WhatsApp-Nachricht vor und öffnet die gewählte App zum Prüfen und Absenden. Telefon, E-Mail und WhatsApp sind außerdem direkt verlinkt. Die WhatsApp-Nutzung der Mobilnummer 01520 9856402 ist vor dem endgültigen Betrieb mit Isabella zu bestätigen. Es gibt keine automatische Reservierung, kein Formular-Backend und keine Tracking-Skripte im Website-Code. Schriften und Bilder werden lokal ausgeliefert.
 
 ## Quellen und Rechte
 
@@ -26,8 +26,8 @@ Bilder, Logo und veröffentlichte Geschäftsdaten stammen aus dem bestehenden Au
 
 Der Entwurf dient zunächst der Abstimmung mit der Betreiberin. Vor der endgültigen Veröffentlichung auf der Unternehmensdomain sind Geschäftsdaten, Inhalte und Rechtstexte freizugeben und auf den tatsächlichen Betrieb abzustimmen.
 
-Stand: 17.10.2026. Eigenständige zweite Variante mit individuellen Behandlungsseiten, großen Bildauftakten, Bildstrecken und fortgeführter Scroll-Bewegung. Die erste Version unter /natuerlich-bella/ bleibt unverändert. Die Bildherkunft der ergänzenden Motive ist in IMAGE-PROMPTS.json dokumentiert. Sie zeigen keine tatsächlichen Behandlungsergebnisse, Produkte oder Gutscheinverpackungen des Studios.
+Stand: 18.10.2026. Eigenständige zweite Variante mit individuellen Behandlungsseiten, großen Bildauftakten, Bildstrecken und fortgeführter Scroll-Bewegung. Die erste Version unter /natuerlich-bella/ bleibt unverändert. Die Bildherkunft der ergänzenden Motive ist in IMAGE-PROMPTS.json dokumentiert. Sie zeigen keine tatsächlichen Behandlungsergebnisse, Produkte oder Gutscheinverpackungen des Studios.
 
 ## Datenschutz
 
-Die Datenschutzerklärung übernimmt den Inhalt der bestehenden Studio-Website vom 17.10.2026. Abschnitt 6 ergänzt die Umsetzung dieser Vorschau: GitHub Pages, E-Mail-Entwurf, Bewegungseinstellung im Sitzungsspeicher, lokale Schriften und Bilder sowie externe Links. Angaben zum bisherigen Webador-Auftritt sind als solche eingeordnet. Vor dem endgültigen Betrieb wird die Erklärung auf das tatsächlich eingesetzte Hosting und die freigegebenen Dienste abgestimmt.
+Die Datenschutzerklärung übernimmt den Inhalt der bestehenden Studio-Website vom 17.10.2026. Abschnitt 6 ergänzt die Umsetzung dieser Vorschau: GitHub Pages, E-Mail- und WhatsApp-Entwurf, Bewegungseinstellung im Sitzungsspeicher, lokale Schriften und Bilder sowie externe Links. Angaben zum bisherigen Webador-Auftritt sind als solche eingeordnet. Vor dem endgültigen Betrieb wird die Erklärung auf das tatsächlich eingesetzte Hosting und die freigegebenen Dienste abgestimmt.

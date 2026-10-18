@@ -158,3 +158,12 @@
 .legal .contact-link>svg,.form-note .contact-link>svg{width:16px;height:16px;flex-basis:16px}
 .text-link.contact-link:hover>svg{transform:none}
 @media(max-width:620px){.footer .footer-contact .contact-link{min-height:40px}}
+
+/* Two clear ways to continue the same personal inquiry. */
+.contact-form .contact-channels{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,185px),1fr));gap:12px;margin-top:24px}
+.contact-form .contact-channels .button{margin:0;min-width:0;min-height:54px;padding:15px 12px;gap:9px;line-height:1.5}
+.contact-form .contact-channels .button[hidden]{display:none}
+.contact-channels .button svg{width:19px;height:19px;stroke-linecap:round;stroke-linejoin:round}
+.contact-channels .button:hover svg{transform:none}
+.contact-form .form-note a{text-decoration:underline;text-underline-offset:3px}
+@media(max-width:620px){.contact-form .contact-channels{grid-template-columns:1fr}}

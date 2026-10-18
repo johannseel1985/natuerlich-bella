@@ -65,23 +65,38 @@
   const form = document.querySelector('#inquiry-form');
   if (form) {
     const selection = form.querySelector('#treatment');
+    const nameField = form.querySelector('#name');
     const requested = new URLSearchParams(window.location.search).get('behandlung');
     if (requested && [...selection.options].some(option => option.value === requested)) selection.value = requested;
+    nameField.addEventListener('input', () => nameField.setCustomValidity(''));
     form.addEventListener('submit', event => {
       event.preventDefault();
+      nameField.setCustomValidity(nameField.value.trim() ? '' : 'Bitte gib deinen Vornamen ein.');
       if (!form.reportValidity()) return;
-      const name = form.querySelector('#name').value.trim();
+      const name = nameField.value.trim();
       const note = form.querySelector('#message').value.trim();
       const treatment = selection.value;
+      const whatsapp = event.submitter?.value === 'whatsapp';
       const subject = 'Terminanfrage · ' + treatment;
       const body = 'Hallo Isabella,\n\nich interessiere mich für: ' + treatment + '.\n\n' + (note ? note + '\n\n' : '') + 'Ich freue mich über eine Rückmeldung.\n\nLiebe Grüße\n' + name;
-      const url = 'mailto:info@natuerlichbella.de?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+      const url = whatsapp
+        ? form.dataset.whatsapp + '?text=' + encodeURIComponent(body)
+        : form.action + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
       const status = form.querySelector('.form-status');
       status.hidden = false;
-      status.replaceChildren(document.createTextNode('Deine Nachricht ist vorbereitet. Bitte sende sie in deinem E-Mail-Programm ab. Falls es sich nicht öffnet: '));
-      const link = document.createElement('a'); link.href = url; link.textContent = 'E-Mail erneut öffnen'; link.className = 'text-link'; status.append(link);
-      window.location.href = url;
+      status.replaceChildren(document.createTextNode(whatsapp
+        ? 'Deine Nachricht ist vorbereitet. Bitte prüfe und sende sie in WhatsApp. Falls sich WhatsApp nicht öffnet: '
+        : 'Deine Nachricht ist vorbereitet. Bitte prüfe und sende sie in deinem E-Mail-Programm. Falls es sich nicht öffnet: '));
+      const link = document.createElement('a');
+      link.href = url;
+      link.textContent = whatsapp ? 'WhatsApp erneut öffnen' : 'E-Mail erneut öffnen';
+      link.className = 'text-link';
+      if (whatsapp) { link.target = '_blank'; link.rel = 'noopener noreferrer'; }
+      status.append(link);
+      if (whatsapp) window.open(url, '_blank', 'noopener,noreferrer');
+      else window.location.href = url;
     });
+    form.querySelector('[value="whatsapp"]').hidden = false;
   }
   const pictures = [...document.querySelectorAll('[data-motion]')];
   const motionToggle = document.querySelector('.motion-toggle');
