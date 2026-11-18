@@ -183,3 +183,4 @@
 .motion-frame{-webkit-mask-image:-webkit-radial-gradient(white,black);mask-image:radial-gradient(white,black)}
 .hero-shape .motion-frame[data-motion=gutschein]>img{border-radius:inherit}
 .motion-frame[data-motion=hero]>img{object-position:50% 58%}
+.motion-frame[data-motion=regal]{clip-path:none!important}.motion-frame[data-motion=regal]>img{animation:none!important;transform:none!important;scale:none!important;translate:none!important;object-position:center 55%}
