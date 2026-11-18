@@ -189,3 +189,6 @@
 @media (max-width:760px){.hero-stamp{width:112px;height:112px;padding:10px;left:42px;top:58px;right:auto;bottom:auto;transform:rotate(-6deg)}.hero-stamp strong{font-size:19px;margin:4px 0}.hero-stamp span{font-size:7px;letter-spacing:.11em}}
 @media (min-width:761px){.hero-stamp{width:138px;height:138px;padding:12px;left:44px;top:44px;right:auto;bottom:auto;transform:rotate(-6deg)}.hero-stamp strong{font-size:22px;margin:5px 0}.hero-stamp span{font-size:8px;letter-spacing:.12em}}
 @media (min-width:761px){.hero-caption{top:40px;right:36px;left:auto;bottom:auto;max-width:44%;text-align:right;line-height:1.7}}
+@font-face{font-family:'Great Vibes';font-style:normal;font-weight:400;font-display:swap;src:url(great-vibes-400.woff2) format('woff2')}
+.signature-script{font:400 54px/1.15 'Great Vibes',var(--serif);color:var(--gold);margin:18px 0 26px}
+@media (max-width:760px){.signature-script{font-size:46px}}
