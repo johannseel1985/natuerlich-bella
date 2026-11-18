@@ -182,5 +182,7 @@
 /* Safari/iOS: Rundungen der Bildkacheln sicher erzwingen */
 .motion-frame{-webkit-mask-image:-webkit-radial-gradient(white,black);mask-image:radial-gradient(white,black)}
 .hero-shape .motion-frame[data-motion=gutschein]>img{border-radius:inherit}
-.motion-frame[data-motion=hero]>img{object-position:50% 58%}
+.motion-frame[data-motion=hero]>img{object-position:50% 50%}
 .motion-frame[data-motion=regal]{clip-path:none!important}.motion-frame[data-motion=regal]>img{animation:none!important;transform:none!important;scale:none!important;translate:none!important;object-position:center 55%}
+.motion-frame[data-motion=lash],.motion-frame[data-motion=brows]{--motion-scale-start:1.01;--motion-scale-end:1.05;--motion-x-start:-.3%;--motion-x-end:.3%;--motion-y-start:0%;--motion-y-end:0%}
+.motion-frame[data-motion=hero]{--motion-scale-start:1.02!important;--motion-scale-end:1.1!important;--motion-x-start:-1%;--motion-x-end:1%;--motion-y-start:0%;--motion-y-end:.5%}
