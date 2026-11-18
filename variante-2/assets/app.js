@@ -115,6 +115,7 @@
     motionToggle.hidden = !(pictureMotion || scrollController?.available) || !canAnimate() || printing;
     motionToggle.setAttribute('aria-pressed', String(userPaused));
     motionToggle.setAttribute('aria-label', userPaused ? 'Bewegung fortsetzen' : 'Bewegung pausieren');
+    motionToggle.title = userPaused ? 'Bildbewegung fortsetzen' : 'Bildbewegung pausieren';
     motionToggle.querySelector('span').textContent = userPaused ? 'Bewegung starten' : 'Bewegung pausieren';
   }
   function setupPictureMotion() {
