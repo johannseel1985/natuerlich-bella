@@ -167,3 +167,5 @@
 .contact-channels .button:hover svg{transform:none}
 .contact-form .form-note a{text-decoration:underline;text-underline-offset:3px}
 @media(max-width:620px){.contact-form .contact-channels{grid-template-columns:1fr}}
+
+.aftercare-rules{margin-top:22px;scroll-margin-top:130px}.aftercare-rules ul{margin:0 0 1.1em;padding-left:20px;color:var(--muted)}.aftercare-rules li{margin:2px 0}
