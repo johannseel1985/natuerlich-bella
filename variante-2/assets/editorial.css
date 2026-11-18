@@ -178,3 +178,8 @@
 .contact-person>.motion-frame{background:transparent!important;-webkit-mask-image:-webkit-radial-gradient(white,black)}.contact-person>.motion-frame>img{border-radius:50%}
 
 .hero-shape .motion-frame[data-motion=gutschein]>img{object-fit:cover;object-position:center 88%;animation:none!important;transform:none!important;scale:none!important;translate:none!important}.editorial-hero-image:has([data-motion=gutschein]) .picture-seal{display:none}
+
+/* Safari/iOS: Rundungen der Bildkacheln sicher erzwingen */
+.motion-frame{-webkit-mask-image:-webkit-radial-gradient(white,black);mask-image:radial-gradient(white,black)}
+.hero-shape .motion-frame[data-motion=gutschein]>img{border-radius:inherit}
+.motion-frame[data-motion=hero]>img{object-position:50% 58%}
