@@ -172,3 +172,5 @@
 @media(max-width:340px){.service-item{grid-template-columns:minmax(0,1fr) 74px}.service-item h3{overflow-wrap:anywhere;hyphens:auto}}
 .motion-toggle{width:40px;height:40px;min-height:40px;padding:0;justify-content:center;gap:0;border-radius:50%;opacity:.82;box-shadow:0 3px 14px #333c3112}.motion-toggle:hover,.motion-toggle:focus-visible{opacity:1}.motion-toggle svg{width:14px;height:14px}.motion-toggle span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 @media(max-width:760px){.motion-toggle{right:14px;padding:0;width:40px;height:40px}}
+.quiet-moment,.information,.contact-form,.price-aside,.about-section,.trustbar,.gift-strip,.contact-band{--muted:#5c6354}
+.contact-form p,.contact-form .form-note{font-size:12px!important}.contact-item h2{font-size:12px}
