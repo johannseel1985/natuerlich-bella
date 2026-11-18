@@ -175,3 +175,4 @@
 .quiet-moment,.information,.contact-form,.price-aside,.about-section,.trustbar,.gift-strip,.contact-band{--muted:#5c6354}
 .contact-form p,.contact-form .form-note{font-size:12px!important}.contact-item h2{font-size:12px}
 .portrait-wrap .motion-frame[data-motion=portrait]>img{object-position:center 70%}
+.contact-person>.motion-frame{background:transparent!important;-webkit-mask-image:-webkit-radial-gradient(white,black)}.contact-person>.motion-frame>img{border-radius:50%}
