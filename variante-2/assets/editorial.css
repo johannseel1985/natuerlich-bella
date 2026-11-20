@@ -216,3 +216,7 @@ summary:after{color:var(--green)}
 
 /* Gutscheinbild auf Startseite, Behandlungen, Preise: ganzer Umschlag wie auf der Gutscheinseite (2026-11-20) */
 .motion-frame[data-motion=gift]>img{animation:none!important;transform:none!important;scale:none!important;translate:none!important;object-position:center 75%}
+
+/* Kontrast für Barrierefreiheit (WCAG AA), Farbton bleibt, nur etwas satter (2026-11-20) */
+:root{--muted:#6d6056;--olive:#765e47;--gold-text:#967a47}
+h1 em,h2 em,h3 em,.hero h1 em,.studio-copy em,.step,.process-card .step,.signature,.signature-script,.handwritten{color:var(--gold-text)}
