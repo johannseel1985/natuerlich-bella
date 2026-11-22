@@ -255,7 +255,3 @@ h1 em,h2 em,h3 em,.hero h1 em,.studio-copy em,.step,.process-card .step,.signatu
 .review-links{display:flex;flex-wrap:wrap;gap:12px 40px}
 .reviews-full .review-links{margin-top:12px}
 .visually-hidden{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-
-/* Über Isabella: Porträt vollständig zeigen, ohne Beschnitt (22.11.2026) */
-.hero-shape .motion-frame[data-motion=portrait-about]{aspect-ratio:3/2!important;height:auto!important}
-.hero-shape .motion-frame[data-motion=portrait-about]>img{object-fit:cover;object-position:center center;animation:none!important;transform:none!important;scale:none!important;translate:none!important}
