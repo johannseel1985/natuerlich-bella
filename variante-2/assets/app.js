@@ -218,7 +218,8 @@
         const focused = unit.element.contains(document.activeElement);
         const travel = unit.travel * (mobile ? .55 : 1);
         const y = focused ? 0 : unit.isHero ? clamp(smoothY * -.075, -48, 0) : -phase * travel / 2 + (1 - enter) * (mobile ? 30 : 52);
-        const opacity = focused || unit.isHero ? 1 : .28 + .72 * visibility;
+        const offscreen = rect.top >= viewport || rect.bottom <= 0;
+        const opacity = focused || unit.isHero || offscreen ? 1 : .28 + .72 * visibility;
         writes.push(() => {
           unit.y = y;
           unit.element.style.setProperty('--flow-y', `${y.toFixed(2)}px`);
