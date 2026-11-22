@@ -240,29 +240,7 @@ h1 em,h2 em,h3 em,.hero h1 em,.studio-copy em,.step,.process-card .step,.signatu
 .review-single{padding-top:0}
 .review-single-wrap{max-width:780px}
 .review-single .review-card{margin-bottom:24px}
-/* Entwurf A: dunkle Bühne */
-.reviews-a.reviews-section,.reviews-a.review-single .review-card{background:#4a3d33;color:#f7f1e8}
-.reviews-a.reviews-section{border-radius:75px 0 75px 0;margin:0 clamp(0px,2vw,28px)}
-.reviews-a .eyebrow{color:#d9c39a}
-.reviews-a h2{color:#fbf6ee}
-.reviews-a h2 em{color:#d9c39a}
-.reviews-a .section-head p{color:rgba(247,241,232,.78)}
-.reviews-a .text-link{color:#fbf6ee;border-color:rgba(217,195,154,.6)}
-.reviews-a .review-card{background:rgba(255,251,244,.06);border:1px solid rgba(217,195,154,.28);border-radius:28px;padding:32px 32px 28px}
-.reviews-a .review-mark,.reviews-a .review-stars{color:#d9c39a}
-.reviews-a .review-card blockquote p{color:rgba(251,246,238,.92)}
-.reviews-a .review-avatar{border:1px solid #d9c39a;color:#f0dfbf}
-.reviews-a .review-who strong{color:#fbf6ee}
-.reviews-a .review-who small{color:rgba(247,241,232,.7)}
-.reviews-a .review-grid{grid-template-columns:1.25fr 1fr;grid-template-rows:auto auto}
-.reviews-a .review-featured{grid-row:1/3;background:linear-gradient(160deg,rgba(217,195,154,.2),rgba(217,195,154,.04));padding:48px 46px 40px}
-.reviews-a .review-featured blockquote{margin-top:8px}
-.reviews-a .review-featured blockquote p{font-size:clamp(20px,1.9vw,26px);line-height:1.55;color:#fbf6ee}
-.reviews-a .review-featured .review-mark{font-size:130px;height:48px}
-.reviews-a.review-single{background:none}
-.reviews-a.review-single .review-card{padding:44px 44px 36px;border:0}
-.reviews-a.review-single .review-card blockquote p{font-size:clamp(19px,1.8vw,23px);line-height:1.55}
-/* Entwurf B: hell und weich */
+/* Gewählt 22.11.2026: hell und weich */
 .reviews-b.reviews-section{background:var(--sand)}
 .reviews-b .review-card{background:var(--white);border-radius:34px 34px 34px 6px;padding:34px 34px 30px;box-shadow:0 24px 60px -34px rgba(74,61,51,.45)}
 .reviews-b .review-mark{font-size:110px;height:44px;color:var(--latte)}
@@ -272,5 +250,8 @@ h1 em,h2 em,h3 em,.hero h1 em,.studio-copy em,.step,.process-card .step,.signatu
 .reviews-b .review-grid{grid-template-columns:repeat(3,1fr);align-items:start}
 .reviews-b .review-grid .review-card:nth-child(2){margin-top:56px}
 .reviews-b .review-featured{background:var(--white)}
-@media(max-width:1100px){.reviews-a .review-grid{grid-template-columns:1fr 1fr}.reviews-b .review-grid{grid-template-columns:1fr 1fr}.reviews-b .review-grid .review-card:nth-child(2){margin-top:0}.reviews-b .review-grid .review-card:last-child{grid-column:1/-1}}
-@media(max-width:620px){.reviews-a.reviews-section{border-radius:45px 0 45px 0;margin:0}.reviews-a .review-grid,.reviews-b .review-grid{grid-template-columns:1fr;gap:16px}.reviews-a .review-featured{grid-row:auto;padding:34px 24px 28px}.reviews-b .review-grid .review-card:last-child{grid-column:auto}.review-card,.reviews-a .review-card,.reviews-b .review-card{padding:26px 22px 22px}.reviews-a.review-single .review-card{padding:32px 24px 26px}.review-columns{columns:1}.review-columns .review-card{margin-bottom:16px}}
+@media(max-width:1100px){.reviews-b .review-grid{grid-template-columns:1fr 1fr}.reviews-b .review-grid .review-card:nth-child(2){margin-top:0}.reviews-b .review-grid .review-card:last-child{grid-column:1/-1}}
+@media(max-width:620px){.reviews-b .review-grid{grid-template-columns:1fr;gap:16px}.reviews-b .review-grid .review-card:last-child{grid-column:auto}.review-card,.reviews-b .review-card{padding:26px 22px 22px}.review-columns{columns:1}.review-columns .review-card{margin-bottom:16px}}
+.review-links{display:flex;flex-wrap:wrap;gap:12px 40px}
+.reviews-full .review-links{margin-top:12px}
+.visually-hidden{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
