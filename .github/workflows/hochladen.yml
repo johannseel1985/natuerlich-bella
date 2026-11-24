@@ -1,0 +1,40 @@
+name: hochladen
+
+# Lädt die Live-Website von Natürlich Bella zu ALL-INKL hoch,
+# sobald etwas auf dem Zweig "live" landet (oder per Hand gestartet).
+on:
+  push:
+    branches: [live]
+  workflow_dispatch:
+
+concurrency:
+  group: hochladen
+  cancel-in-progress: false
+
+jobs:
+  hochladen:
+    runs-on: ubuntu-latest
+    env:
+      HAT_ZUGANG: ${{ secrets.FTP_BENUTZER != '' }}
+    steps:
+      - name: Zugang vorhanden?
+        if: env.HAT_ZUGANG != 'true'
+        run: echo "::notice::Noch keine FTP-Zugangsdaten hinterlegt, Upload übersprungen."
+      - uses: actions/checkout@v4
+        if: env.HAT_ZUGANG == 'true'
+      - name: Per FTPS zu ALL-INKL hochladen
+        if: env.HAT_ZUGANG == 'true'
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: w022795d.kasserver.com
+          username: ${{ secrets.FTP_BENUTZER }}
+          password: ${{ secrets.FTP_PASSWORT }}
+          protocol: ftps
+          port: 21
+          local-dir: ./
+          server-dir: ./
+          exclude: |
+            **/.git*
+            **/.git*/**
+            .github/**
+            README.md

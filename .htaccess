@@ -1,0 +1,46 @@
+# Natürlich Bella · www.natuerlichbella.de · Stand 24.11.2026
+# Eine einzige Adresse für Google: https://www.natuerlichbella.de
+
+ErrorDocument 404 /404.html
+Options -Indexes
+DirectorySlash Off
+DirectoryIndex index.html
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+
+# Alte Adressen der bisherigen Website dauerhaft umleiten
+RewriteRule ^impresum/?$ https://www.natuerlichbella.de/impressum [R=301,L]
+RewriteRule ^datenschutzerklaerung-2/?$ https://www.natuerlichbella.de/datenschutz [R=301,L]
+
+# natürlichbella.de, natuerlichbella.de ohne www und http auf https://www.natuerlichbella.de
+RewriteCond %{HTTP_HOST} !^www\.natuerlichbella\.de$ [NC,OR]
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://www.natuerlichbella.de/$1 [R=301,L]
+
+# Saubere Adressen ohne Schrägstrich am Ende (/preise statt /preise/)
+RewriteRule ^(.+)/$ https://www.natuerlichbella.de/$1 [R=301,L]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteCond %{REQUEST_FILENAME}/index.html -f
+RewriteRule ^(.+)$ $1/index.html [L]
+</IfModule>
+
+<IfModule mod_deflate.c>
+AddOutputFilterByType DEFLATE text/html text/css application/javascript text/javascript application/json image/svg+xml text/plain application/xml
+</IfModule>
+
+<IfModule mod_expires.c>
+ExpiresActive On
+ExpiresByType text/html "access plus 0 seconds"
+ExpiresByType text/css "access plus 1 month"
+ExpiresByType application/javascript "access plus 1 month"
+ExpiresByType text/javascript "access plus 1 month"
+ExpiresByType image/webp "access plus 1 year"
+ExpiresByType image/jpeg "access plus 1 year"
+ExpiresByType font/woff2 "access plus 1 year"
+</IfModule>
+
+<IfModule mod_headers.c>
+Header always set X-Content-Type-Options "nosniff"
+Header always set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
