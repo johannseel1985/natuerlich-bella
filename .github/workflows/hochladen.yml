@@ -38,19 +38,17 @@ jobs:
           FTP_BENUTZER: ${{ secrets.FTP_BENUTZER }}
           FTP_PASSWORT: ${{ secrets.FTP_PASSWORT }}
         run: |
-          umask 077
-          printf 'machine w022795d.kasserver.com login %s password %s\n' "$FTP_BENUTZER" "$FTP_PASSWORT" > ~/.netrc
+          export LFTP_PASSWORD="$FTP_PASSWORT"
           EXTRA=""
           if [ "$PROBELAUF" = "true" ]; then EXTRA="--dry-run"; echo "Probelauf: es wird nichts hochgeladen."; fi
           lftp -c "
             set ftp:ssl-force true;
             set ftp:ssl-protect-data true;
             set ssl:verify-certificate true;
-            set net:max-retries 2;
+            set net:max-retries 1;
             set net:timeout 30;
-            open ftp://w022795d.kasserver.com;
+            open -u "$FTP_BENUTZER" --env-password ftp://w022795d.kasserver.com;
             mirror --reverse --verbose $EXTRA \
               --exclude-glob .git* --exclude-glob .git/ --exclude-glob .github/ --exclude-glob README.md \
               ./ ./
           "
-          rm -f ~/.netrc
