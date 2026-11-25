@@ -6,6 +6,11 @@ on:
   push:
     branches: [live]
   workflow_dispatch:
+    inputs:
+      probelauf:
+        description: 'Nur testen, nichts hochladen'
+        type: boolean
+        default: true
 
 concurrency:
   group: hochladen
@@ -33,6 +38,7 @@ jobs:
           port: 21
           local-dir: ./
           server-dir: ./
+          dry-run: ${{ github.event_name == 'workflow_dispatch' && inputs.probelauf }}
           exclude: |
             **/.git*
             **/.git*/**
