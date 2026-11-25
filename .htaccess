@@ -1,4 +1,4 @@
-# Natürlich Bella · www.natuerlichbella.de · Stand 24.11.2026
+# Natürlich Bella · www.natuerlichbella.de · Stand 25.11.2026
 # Eine einzige Adresse für Google: https://www.natuerlichbella.de
 
 ErrorDocument 404 /404.html
@@ -8,6 +8,9 @@ DirectoryIndex index.html
 
 <IfModule mod_rewrite.c>
 RewriteEngine On
+
+# Kurzlink für QR-Karten: /bewertung öffnet das Google-Bewertungsfenster (302, damit das Ziel später änderbar bleibt)
+RewriteRule ^bewertung/?$ https://search.google.com/local/writereview?placeid=ChIJTTyzJZPLHIUR4Mb7ImuZhRs [R=302,L,NC,NE]
 
 # Alte Adressen der bisherigen Website dauerhaft umleiten
 RewriteRule ^impresum/?$ https://www.natuerlichbella.de/impressum [R=301,L]
