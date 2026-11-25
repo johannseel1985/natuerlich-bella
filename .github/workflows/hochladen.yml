@@ -2,6 +2,7 @@ name: hochladen
 
 # Lädt die Live-Website von Natürlich Bella zu ALL-INKL hoch,
 # sobald etwas auf dem Zweig "live" landet (oder per Hand gestartet).
+# Verschlüsselt per FTPS (explizites TLS). Es wird nichts auf dem Server gelöscht.
 on:
   push:
     branches: [live]
@@ -21,26 +22,35 @@ jobs:
     runs-on: ubuntu-latest
     env:
       HAT_ZUGANG: ${{ secrets.FTP_BENUTZER != '' }}
+      PROBELAUF: ${{ github.event_name == 'workflow_dispatch' && inputs.probelauf }}
     steps:
       - name: Zugang vorhanden?
         if: env.HAT_ZUGANG != 'true'
         run: echo "::notice::Noch keine FTP-Zugangsdaten hinterlegt, Upload übersprungen."
       - uses: actions/checkout@v4
         if: env.HAT_ZUGANG == 'true'
+      - name: lftp installieren
+        if: env.HAT_ZUGANG == 'true'
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq lftp
       - name: Per FTPS zu ALL-INKL hochladen
         if: env.HAT_ZUGANG == 'true'
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-        with:
-          server: w022795d.kasserver.com
-          username: ${{ secrets.FTP_BENUTZER }}
-          password: ${{ secrets.FTP_PASSWORT }}
-          protocol: ftps
-          port: 21
-          local-dir: ./
-          server-dir: ./
-          dry-run: ${{ github.event_name == 'workflow_dispatch' && inputs.probelauf }}
-          exclude: |
-            **/.git*
-            **/.git*/**
-            .github/**
-            README.md
+        env:
+          FTP_BENUTZER: ${{ secrets.FTP_BENUTZER }}
+          FTP_PASSWORT: ${{ secrets.FTP_PASSWORT }}
+        run: |
+          umask 077
+          printf 'machine w022795d.kasserver.com login %s password %s\n' "$FTP_BENUTZER" "$FTP_PASSWORT" > ~/.netrc
+          EXTRA=""
+          if [ "$PROBELAUF" = "true" ]; then EXTRA="--dry-run"; echo "Probelauf: es wird nichts hochgeladen."; fi
+          lftp -c "
+            set ftp:ssl-force true;
+            set ftp:ssl-protect-data true;
+            set ssl:verify-certificate true;
+            set net:max-retries 2;
+            set net:timeout 30;
+            open ftp://w022795d.kasserver.com;
+            mirror --reverse --verbose $EXTRA \
+              --exclude-glob .git* --exclude-glob .git/ --exclude-glob .github/ --exclude-glob README.md \
+              ./ ./
+          "
+          rm -f ~/.netrc
